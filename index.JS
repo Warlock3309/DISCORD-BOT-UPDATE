@@ -65,8 +65,8 @@ client.once('ready', async () => {
     const guild = client.guilds.cache.first();
     if (!guild) return;
 
-    // Tenta achar o canal chamado "ranking"
-    let canal = guild.channels.cache.find(c => c.name === 'rank');
+    // Tenta achar o canal chamado "【🏆】ranking"
+    let canal = guild.channels.cache.find(c => c.name === '【🏆】ranking');
 
     // Se não existir, cria um
     if (!canal) {
@@ -75,9 +75,9 @@ client.once('ready', async () => {
           name: 'rank',
           type: 0 // Canal de texto
         });
-        console.log('📊 Canal "ranking" criado automaticamente.');
+        console.log('📊 Canal "【🏆】ranking" criado automaticamente.');
       } catch (err) {
-        console.log('Erro ao criar canal de ranking:', err);
+        console.log('Erro ao criar canal de 【🏆】ranking:', err);
         return;
       }
     }
@@ -274,3 +274,4 @@ client.on('ready', async () => {
 
 // Conecta o bot
 client.login('seu token');
+
