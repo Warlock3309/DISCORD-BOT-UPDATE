@@ -26,21 +26,13 @@ if (fs.existsSync('pontos.json')) {
   }
 }
 
-
-client.on('messageCreate', async (message) => {
-  if (message.author.bot) return;
-  const member = message.member;
-
-  // Se ainda não existe, cria o registro do usuário
-  if (!pontos[member.id]) pontos[member.id] = 0;
-
   // Adiciona 2 pontos por mensagem
   pontos[member.id] += 2;
   salvarPontos();
 
   // Verifica se o usuário atingiu 3000 pontos e ainda não recebeu o cargo VIP Bronze
   const cargo = member.guild.roles.cache.find(r => r.name === "╭───𒌋𒀖 「💎・VIP BRONZE");
-  if (pontos[member.id] >= 3000 && cargo && !member.roles.cache.has(cargo.id)) {
+  if (pontos[member.id] >= 3000 && cargo && !member.roles.cache.has()) {
     await member.roles.add(cargo);
     console.log(`🎉 ${member.user.username} atingiu 3000 pontos e ganhou o cargo ╭───𒌋𒀖 「💎・VIP BRONZE!`);
 
