@@ -32,7 +32,7 @@ if (fs.existsSync('pontos.json')) {
 
   // Verifica se o usuário atingiu 3000 pontos e ainda não recebeu o cargo VIP Bronze
   const cargo = member.guild.roles.cache.find(r => r.name === "╭───𒌋𒀖 「💎・VIP BRONZE");
-  if (pontos[member.id] >= 3000 && cargo && !member.roles.cache.has()) {
+  if (pontos[member.id] >= 3000 && cargo && !member.roles.cache.has(cargo.id)) {
     await member.roles.add(cargo);
     console.log(`🎉 ${member.user.username} atingiu 3000 pontos e ganhou o cargo ╭───𒌋𒀖 「💎・VIP BRONZE!`);
 
