@@ -46,7 +46,6 @@ if (fs.existsSync('pontos.json')) {
 
 
 // Carrega o arquivo de pontos (ou cria um vazio se não existir)
-let pontos = {};
 
 // Função pra salvar os pontos sempre que mudarem
 function salvarPontos() {
