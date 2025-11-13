@@ -12,7 +12,19 @@ const client = new Client({
     GatewayIntentBits.GuildVoiceStates   
   ]
 });
+const fs = require('fs');
 
+let pontos = {};
+
+// Carrega os pontos do arquivo, se existir
+if (fs.existsSync('pontos.json')) {
+  try {
+    pontos = JSON.parse(fs.readFileSync('pontos.json'));
+    console.log('✅ Pontos carregados do arquivo.');
+  } catch (err) {
+    console.log('❌ Erro ao carregar pontos:', err);
+  }
+}
 
 
 client.on('messageCreate', async (message) => {
