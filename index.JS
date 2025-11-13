@@ -1,19 +1,6 @@
 // Importa as bibliotecas necessárias
 const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
-
-// Cria o cliente do bot com as permissões (intents)
-const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,            
-    GatewayIntentBits.GuildMessages,     
-    GatewayIntentBits.MessageContent,    
-    GatewayIntentBits.GuildMembers,      
-    GatewayIntentBits.GuildVoiceStates   
-  ]
-});
-const fs = require('fs');
-
 let pontos = {};
 
 // Carrega os pontos do arquivo, se existir
@@ -25,6 +12,17 @@ if (fs.existsSync('pontos.json')) {
     console.log('❌ Erro ao carregar pontos:', err);
   }
 }
+// Cria o cliente do bot com as permissões (intents)
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,            
+    GatewayIntentBits.GuildMessages,     
+    GatewayIntentBits.MessageContent,    
+    GatewayIntentBits.GuildMembers,      
+    GatewayIntentBits.GuildVoiceStates   
+  ]
+});
+
 
   // Adiciona 2 pontos por mensagem
   pontos[member.id] += 2;
